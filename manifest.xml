@@ -1,0 +1,19 @@
+<iq:manifest xmlns:iq="http://www.garmin.com/xml/connectiq" version="3">
+    <iq:application
+        id="5ac3be7a-6b9f-48d3-8b17-18934bc48f13"
+        type="watch-app"
+        name="@Strings.AppName"
+        entry="CprPacerApp"
+        minSdkVersion="3.4.0"
+        launcherIcon="@Drawables.LauncherIcon">
+        <iq:products>
+            <iq:product id="fenix7xpro"/>
+        </iq:products>
+        <iq:permissions>
+            <iq:uses-permission id="Sensor"/>
+        </iq:permissions>
+        <iq:languages>
+            <iq:language>eng</iq:language>
+        </iq:languages>
+    </iq:application>
+</iq:manifest>
