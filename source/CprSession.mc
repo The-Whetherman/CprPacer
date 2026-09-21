@@ -72,6 +72,7 @@ class CprSession {
         (timer as Timer.Timer).stop();
         unregisterSensor();
 
+        elapsedMs = System.getTimer() - startMark;
         lastDurationSec = elapsedMs / 1000;
         lastCompressions = beatCount;
         lastCycles = lastCycleIndex;
@@ -176,7 +177,7 @@ class CprSession {
         var xs = accel.x;
         var ys = accel.y;
         var zs = accel.z;
-        if (xs == null || xs.size() == 0) {
+        if (xs == null || ys == null || zs == null || xs.size() == 0) {
             return;
         }
 
