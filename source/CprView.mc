@@ -39,21 +39,26 @@ class CprView extends WatchUi.View {
     }
 
     function drawIdle(dc as Graphics.Dc, cx as Number, h as Number) as Void {
-        dc.drawText(cx, h * 0.28, Graphics.FONT_MEDIUM, "CPR Pacer", Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(cx, h * 0.42, Graphics.FONT_SMALL, "100 / min", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(cx, h * 0.20, Graphics.FONT_MEDIUM, "CPR Pacer", Graphics.TEXT_JUSTIFY_CENTER);
+
+        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_BLACK);
+        dc.drawText(cx, h * 0.33, Graphics.FONT_XTINY, "TRAINING AID", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+
+        dc.drawText(cx, h * 0.46, Graphics.FONT_SMALL, "100 / min", Graphics.TEXT_JUSTIFY_CENTER);
 
         if (session.lastCompressions > 0) {
             var recap = "Last: " + formatTime(session.lastDurationSec * 1000) +
                 "  " + session.lastCompressions.toString() + " comp";
-            dc.drawText(cx, h * 0.56, Graphics.FONT_XTINY, recap, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(cx, h * 0.58, Graphics.FONT_XTINY, recap, Graphics.TEXT_JUSTIFY_CENTER);
         }
 
-        dc.drawText(cx, h * 0.72, Graphics.FONT_SMALL, "SELECT: Start", Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(cx, h * 0.84, Graphics.FONT_XTINY, "DOWN: History", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(cx, h * 0.74, Graphics.FONT_SMALL, "SELECT: Start", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(cx, h * 0.86, Graphics.FONT_XTINY, "DOWN: History", Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     function drawRunning(dc as Graphics.Dc, cx as Number, h as Number) as Void {
-        dc.drawText(cx, h * 0.30, Graphics.FONT_NUMBER_HOT, formatTime(session.elapsedMs), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(cx, h * 0.34, Graphics.FONT_NUMBER_MEDIUM, formatTime(session.elapsedMs), Graphics.TEXT_JUSTIFY_CENTER);
 
         dc.drawText(cx, h * 0.54, Graphics.FONT_SMALL,
             "Compressions: " + session.beatCount.toString(), Graphics.TEXT_JUSTIFY_CENTER);
